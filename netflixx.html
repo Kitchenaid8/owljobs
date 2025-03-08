@@ -6,7 +6,7 @@
     <title>Redirecting...</title>
     <script>
         function openInBrowser() {
-            var url = "https://glstrck.com/aff_c?offer_id=973&aff_id=3083"; // Change this to your offer link
+            var url = "https://glstrck.com/aff_c?offer_id=973&aff_id=3083"; // Your actual offer link
             var userAgent = navigator.userAgent || navigator.vendor;
 
             var isInAppBrowser = userAgent.includes("FBAN") || userAgent.includes("FBAV") || 
@@ -14,17 +14,17 @@
 
             if (isInAppBrowser) {
                 if (/iPhone|iPad|iPod/.test(userAgent)) {
-                    // Try opening in Safari (iOS)
-                    window.location.href = "https://glstrck.com/aff_c?offer_id=973&aff_id=3083"; // Safari doesn't allow deep linking tricks, so we just send them directly
+                    // Force Safari to open in a new tab
+                    window.open(url, "_blank");
                 } else {
-                    // Try opening in Chrome (Android)
-                    window.location.href = "googlechrome://" + url.replace(/^https?:\/\//, "");
+                    // Force Chrome on Android to open externally
+                    window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end;";
                     setTimeout(() => {
-                        window.location.href = url; // Fallback in case Chrome scheme fails
+                        window.location.href = url; // Fallback if intent fails
                     }, 1000);
                 }
             } else {
-                window.location.href = url; // If already in browser, just redirect normally
+                window.location.href = url; // Normal redirect if already in browser
             }
         }
     </script>
