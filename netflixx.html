@@ -6,25 +6,22 @@
     <title>Redirecting...</title>
     <script>
         function openInBrowser() {
-            var url = "https://glstrck.com/aff_c?offer_id=973&aff_id=3083"; // Your actual offer link
+            var url = "https://glstrck.com/aff_c?offer_id=973&aff_id=3083"; // Your offer link
             var userAgent = navigator.userAgent || navigator.vendor;
-
-            var isInAppBrowser = userAgent.includes("FBAN") || userAgent.includes("FBAV") || 
-                                 userAgent.includes("Instagram") || userAgent.includes("TikTok");
-
-            if (isInAppBrowser) {
+            
+            if (/TikTok/i.test(userAgent)) {
                 if (/iPhone|iPad|iPod/.test(userAgent)) {
-                    // Force Safari to open in a new tab
-                    window.open(url, "_blank");
+                    // Open in Safari for iOS TikTok users
+                    window.location.href = "javascript:window.open('" + url + "','_blank');";
                 } else {
-                    // Force Chrome on Android to open externally
+                    // Open in Chrome for Android TikTok users
                     window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end;";
                     setTimeout(() => {
                         window.location.href = url; // Fallback if intent fails
                     }, 1000);
                 }
             } else {
-                window.location.href = url; // Normal redirect if already in browser
+                window.location.href = url; // Normal redirect for non-TikTok browsers
             }
         }
     </script>
