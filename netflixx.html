@@ -9,19 +9,24 @@
             var url = "https://glstrck.com/aff_c?offer_id=973&aff_id=3083"; // Your offer link
             var userAgent = navigator.userAgent || navigator.vendor;
             
-            if (/TikTok/i.test(userAgent)) {
+            var isTikTok = userAgent.includes("TikTok");
+
+            if (isTikTok) {
                 if (/iPhone|iPad|iPod/.test(userAgent)) {
-                    // Open in Safari for iOS TikTok users
-                    window.location.href = "javascript:window.open('" + url + "','_blank');";
+                    // Open in Safari for iOS
+                    window.location.href = "https://google.com"; // Temporary Google redirect (TikTok blocks direct Safari intents)
+                    setTimeout(() => {
+                        window.location.href = url; 
+                    }, 1000);
                 } else {
-                    // Open in Chrome for Android TikTok users
+                    // Open in Chrome for Android
                     window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end;";
                     setTimeout(() => {
-                        window.location.href = url; // Fallback if intent fails
-                    }, 1000);
+                        window.location.href = url; // Fallback if Chrome fails
+                    }, 1500);
                 }
             } else {
-                window.location.href = url; // Normal redirect for non-TikTok browsers
+                window.location.href = url; // Open normally if not in TikTok
             }
         }
     </script>
