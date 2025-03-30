@@ -1,4 +1,26 @@
-<a href="intent://yourwebsite.com#Intent;scheme=https;package=com.android.chrome;end;" 
-   style="font-size: 20px; color: blue; text-decoration: underline;">
-   Click here to open in browser
-</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open in Browser</title>
+</head>
+<body>
+    <h2>Click below to open in your browser:</h2>
+    <a id="openLink" href="https://yourwebsite.com">Open in Browser</a>
+
+    <script>
+        function isTikTokBrowser() {
+            return navigator.userAgent.toLowerCase().includes("tiktok");
+        }
+
+        function isAndroid() {
+            return navigator.userAgent.toLowerCase().includes("android");
+        }
+
+        if (isTikTokBrowser() && isAndroid()) {
+            document.getElementById("openLink").href = "googlechrome://yourwebsite.com";
+        }
+    </script>
+</body>
+</html>
