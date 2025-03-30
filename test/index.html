@@ -1,0 +1,17 @@
+<script>
+  function forceOpenInBrowser() {
+    var userAgent = navigator.userAgent.toLowerCase();
+    
+    if (userAgent.includes("android")) {
+      // Try opening the link in Chrome via intent
+      window.location.href = "intent://yourwebsite.com#Intent;scheme=https;package=com.android.chrome;end;";
+      
+      // Fallback in case the intent doesn't work (opens in default browser)
+      setTimeout(function () {
+        window.location.href = "https://yourwebsite.com";
+      }, 500);
+    }
+  }
+
+  forceOpenInBrowser();
+</script>
