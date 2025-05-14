@@ -1,0 +1,62 @@
+ body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff; /* Updated background color to #FFFFFF */
+        }
+
+        .content {
+            display: flex;
+            width: 100%;
+            height: auto;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .smaller-image {
+    width: 400px; /* Adjust the width as needed */
+    height: auto; /* Keeps the aspect ratio intact */
+}
+
+
+
+        #group-nam-image {
+            width: 100%;
+            max-width: 400px;
+            position: relative; /* Set the maximum width of the image */
+        }
+        #group-nam-image + .overlay-image {
+    position: absolute;
+    top: 0; /* Overlay at the top of the reference image */
+    left: 0; /* Overlay at the left of the reference image */
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
+    z-index: 10; /* Ensures the overlay is on top */
+}
+        #invite-image {
+            width: 100%;
+            max-width: 400px; /* Set the maximum width of the image */
+        }
+
+
+
+        #custom-button img {
+            width: 50%;
+            max-width: 200px; /* Set a smaller maximum width for the image */
+        }
+
+        #invit {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #231F20;
+            margin: 10px 20px; /* Adjust the margin */
+        }
+
+        #callimg {
+            width: 25px;
+            height: 25px;
+            margin: 0px 10px 0px 0px;
+        }
