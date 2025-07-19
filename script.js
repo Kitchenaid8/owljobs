@@ -1,3 +1,3 @@
 function startchat() {
-    window.open('https://smrturl.co/12e2510', '_blank');
+    window.open('https://smrturl.co/a/s86fa6c83e8/8594?s1=', '_blank');
 }
